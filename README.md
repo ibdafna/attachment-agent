@@ -113,3 +113,30 @@ pytest tests/
 ```bash
 pytest --cov=src/ tests/
 ```
+
+## API Setup
+
+### Gmail API
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project
+3. Enable the Gmail API
+4. Create OAuth 2.0 credentials:
+   - Application type: Desktop
+   - Download the credentials as `credentials.json`
+   - Place in project root directory
+
+### Dropbox API
+1. Go to [Dropbox App Console](https://www.dropbox.com/developers/apps)
+2. Create a new app
+3. Generate an access token
+4. Add token to `.env` file
+
+## Configuration
+1. Copy example files:
+```bash
+cp .env.example .env
+cp credentials.example.json credentials.json
+```
+
+2. Update `.env` with your Dropbox token
+3. Update `credentials.json` with your Gmail API credentials
