@@ -34,8 +34,9 @@ class TestAttachmentProcessor(unittest.TestCase):
         """Test DOCX text extraction."""
         mock_paragraph = Mock()
         mock_paragraph.text = 'Test holiday booking'
-        mock_document.return_value = Mock()
-        mock_document.return_value.paragraphs = [mock_paragraph]
+        mock_doc = Mock()
+        mock_doc.paragraphs = [mock_paragraph]
+        mock_document.return_value = mock_doc
         
         text = self.processor.extract_text_from_docx(b'fake docx content')
         
