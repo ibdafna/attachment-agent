@@ -41,8 +41,11 @@ class AttachmentProcessor:
     def extract_text_from_docx(self, data: bytes) -> Optional[str]:
         """Extract text content from a DOCX file."""
         try:
-            doc = Document(io.BytesIO(data))
-            return " ".join([paragraph.text for paragraph in doc.paragraphs])
+            doc_stream = io.BytesIO(data)
+            doc = Document(doc_stream)
+            text = " ".join([paragraph.text for paragraph in doc.paragraphs])
+            doc_stream.close()
+            return text
         except Exception:
             return None
     
