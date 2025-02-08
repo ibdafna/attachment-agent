@@ -101,15 +101,15 @@ poetry run python -m src.main
 
 1. Set up development environment:
 ```bash
-poetry install
+pip install -e .[dev]
 ```
 
 2. Run tests:
 ```bash
-poetry run pytest
+pytest tests/
 ```
 
 3. Check code coverage:
 ```bash
-poetry run pytest --cov=src/ tests/
+pytest --cov=src/ tests/
 ```
