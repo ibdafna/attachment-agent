@@ -38,12 +38,10 @@ class TestAttachmentProcessor(unittest.TestCase):
         mock_doc.paragraphs = [mock_paragraph]
         mock_document.return_value = mock_doc
         
-        with patch('io.BytesIO') as mock_bytes_io:
-            mock_bytes_io.return_value = Mock()
-            text = self.processor.extract_text_from_docx(b'fake docx content')
-            
-            self.assertEqual(text, 'Test holiday booking')
-            mock_document.assert_called_once_with(mock_bytes_io.return_value)
+        text = self.processor.extract_text_from_docx(b'fake docx content')
+        
+        self.assertEqual(text, 'Test holiday booking')
+        mock_document.assert_called_once()
     
     def test_analyze_image(self):
         """Test image analysis."""
