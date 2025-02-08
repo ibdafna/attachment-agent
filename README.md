@@ -67,11 +67,11 @@ cd attachment-agent
 
 2. Install dependencies:
 ```bash
-# Using pip
-pip install -r requirements.txt
+# For development
+pip install -e .[dev]
 
-# Or using Poetry
-poetry install
+# For production
+pip install .
 ```
 
 3. Configure credentials:
