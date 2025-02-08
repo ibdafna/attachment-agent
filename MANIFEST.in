@@ -1,3 +1,4 @@
 include README.md
 include requirements.txt
 include .env.example
+include credentials.example.json
