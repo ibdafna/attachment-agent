@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "attachment-agent"
+version = "0.1.0"
+description = "An automated system that processes Gmail attachments and organizes them into categorized folders in Dropbox"
+authors = ["Devin <devin@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+google-api-python-client = "^2.116.0"
+google-auth-httplib2 = "^0.2.0"
+google-auth-oauthlib = "^1.2.0"
+python-magic = "^0.4.27"
+PyPDF2 = "^3.0.1"
+Pillow = "^10.2.0"
+python-docx = "^1.1.0"
+python-dotenv = "^1.0.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
