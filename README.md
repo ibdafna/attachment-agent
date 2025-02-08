@@ -59,12 +59,57 @@ An automated system that processes Gmail attachments and organizes them into cat
 
 ## Setup Instructions
 
-[To be added after initial implementation]
+1. Clone the repository:
+```bash
+git clone https://github.com/ibdafna/attachment-agent.git
+cd attachment-agent
+```
+
+2. Install dependencies:
+```bash
+# Using pip
+pip install -r requirements.txt
+
+# Or using Poetry
+poetry install
+```
+
+3. Configure credentials:
+   - Place Gmail API credentials in `credentials.json`
+   - Create `.env` file with your Dropbox token:
+     ```
+     DROPBOX_ACCESS_TOKEN=your_token_here
+     ```
 
 ## Usage
 
-[To be added after initial implementation]
+1. Run the application:
+```bash
+# Using Python directly
+python -m src.main
+
+# Or using Poetry
+poetry run python -m src.main
+```
+
+2. The application will:
+   - Read emails with attachments from your Gmail
+   - Process and categorize attachments
+   - Upload them to organized folders in Dropbox
 
 ## Development
 
-[To be added after initial implementation]
+1. Set up development environment:
+```bash
+poetry install
+```
+
+2. Run tests:
+```bash
+poetry run pytest
+```
+
+3. Check code coverage:
+```bash
+poetry run pytest --cov=src/ tests/
+```
