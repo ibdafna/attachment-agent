@@ -32,7 +32,7 @@ class TestDropboxService(unittest.TestCase):
     def test_ensure_folder_exists_create_new(self):
         """Test creating folder when it doesn't exist."""
         folder_path = '/test_folder'
-        error = ApiError('test', Mock())
+        error = ApiError('test', 'Test error message', 'en')
         error.error = Mock()
         error.error.is_path.return_value = True
         error.error.get_path.return_value = Mock()
@@ -99,7 +99,7 @@ class TestDropboxService(unittest.TestCase):
     def test_list_category_contents_empty(self):
         """Test listing contents of non-existent category."""
         category = 'nonexistent'
-        error = ApiError('test', Mock())
+        error = ApiError('test', 'Test error message', 'en')
         error.error = Mock()
         error.error.is_path.return_value = True
         error.error.get_path.return_value = Mock()

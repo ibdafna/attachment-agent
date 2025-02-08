@@ -15,9 +15,10 @@ class TestGmailService(unittest.TestCase):
     
     @patch('src.services.gmail_service.InstalledAppFlow')
     @patch('src.services.gmail_service.build')
-    @patch('builtins.open')
+    @patch('builtins.open', create=True)
+    @patch('pickle.dump')
     @patch('os.path.exists')
-    def test_authenticate_new_credentials(self, mock_exists, mock_open, mock_build, mock_flow):
+    def test_authenticate_new_credentials(self, mock_exists, mock_pickle_dump, mock_open, mock_build, mock_flow):
         """Test authentication with new credentials."""
         mock_exists.return_value = False
         mock_flow_instance = Mock()
@@ -29,6 +30,7 @@ class TestGmailService(unittest.TestCase):
         mock_flow.from_client_secrets_file.assert_called_once()
         mock_flow_instance.run_local_server.assert_called_once()
         mock_build.assert_called_once_with('gmail', 'v1', credentials=mock_flow_instance.run_local_server.return_value)
+        mock_pickle_dump.assert_called_once()
     
     def test_list_messages_with_attachments(self):
         """Test listing messages with attachments."""
