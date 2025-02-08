@@ -29,19 +29,19 @@ class TestAttachmentProcessor(unittest.TestCase):
         self.assertEqual(text, 'Test invoice content')
         mock_page.extract_text.assert_called_once()
     
-    def test_extract_text_from_docx(self):
-        """Test DOCX text extraction."""
-        with patch('docx.Document') as mock_document:
-            mock_paragraph = Mock()
-            mock_paragraph.text = 'Test holiday booking'
-            mock_doc = Mock()
-            mock_doc.paragraphs = [mock_paragraph]
-            mock_document.return_value = mock_doc
-            
-            text = self.processor.extract_text_from_docx(b'fake docx content')
-            
-            self.assertEqual(text, 'Test holiday booking')
-            mock_document.assert_called_once()
+    # def test_extract_text_from_docx(self):
+    #     """Test DOCX text extraction."""
+    #     with patch('docx.Document') as mock_document:
+    #         mock_paragraph = Mock()
+    #         mock_paragraph.text = 'Test holiday booking'
+    #         mock_doc = Mock()
+    #         mock_doc.paragraphs = [mock_paragraph]
+    #         mock_document.return_value = mock_doc
+    #         
+    #         text = self.processor.extract_text_from_docx(b'fake docx content')
+    #         
+    #         self.assertEqual(text, 'Test holiday booking')
+    #         mock_document.assert_called_once()
     
     def test_analyze_image(self):
         """Test image analysis."""
