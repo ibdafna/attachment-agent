@@ -41,12 +41,10 @@ class AttachmentProcessor:
     def extract_text_from_docx(self, data: bytes) -> Optional[str]:
         """Extract text content from a DOCX file."""
         try:
-            doc_stream = io.BytesIO(data)
-            doc = Document(doc_stream)
-            text = " ".join([paragraph.text for paragraph in doc.paragraphs])
-            doc_stream.close()
-            return text
-        except Exception:
+            doc = Document(io.BytesIO(data))
+            return " ".join([paragraph.text for paragraph in doc.paragraphs])
+        except Exception as e:
+            print(f"Error extracting text from DOCX: {str(e)}")
             return None
     
     def analyze_image(self, data: bytes) -> Dict:
